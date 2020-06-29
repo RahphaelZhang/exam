@@ -1,0 +1,223 @@
+\usepackage[a4paper, hmargin=2.2cm, vmargin=2.0cm, marginparwidth=2cm, marginparsep=0.2cm]{geometry}
+
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{color}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[pdfauthor={Alexandru Ghitza},
+pdftitle={Experimental Mathematics 2020}]{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+\urlstyle{rm}
+\usepackage{float}
+%\usepackage{sagetex}
+
+
+\lstset{numbers=none,
+  frame=leftline,
+  framerule=1ex,
+  framesep=1ex,
+  rulecolor=\color{gray!30},
+  xleftmargin=2ex,
+  basicstyle={\ttfamily},
+  columns=fixed,
+  showstringspaces=false,
+  commentstyle={\ttfamily\color{red}},
+  keywordstyle={\ttfamily\color{blue}},
+  stringstyle={\ttfamily},
+  fontadjust=true,
+  basewidth={1.09ex},
+  breaklines=false,
+}
+
+% \usepackage{enumerate}
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=(\alph*)}
+\setlist[enumerate,2]{label=(\roman*)}
+\usepackage{numprint}
+\usepackage[short]{datetime}
+
+\usepackage{epsf}
+\usepackage{todonotes}
+
+\usepackage[automark,markcase=ignoreuppercase]{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\lohead[]{MAST90053 ExpMath}
+\rehead[]{\leftmark}
+\cfoot[\pagemark]{\pagemark}
+\renewcommand*{\headfont}{\bfseries\small}
+% \setheadsepline{0.1pt}
+
+\usepackage{dsfont}
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amscd}
+\usepackage{MnSymbol}
+\usepackage{epstopdf}
+\usepackage[protrusion=true,expansion=true,verbose=true,final=true]{microtype}
+\usepackage{datetime}
+\usepackage{marginnote}
+\usepackage{ifdraft}
+
+\usepackage{tikz}
+\usetikzlibrary{spy}
+\usetikzlibrary{matrix,arrows,positioning}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations.fractals}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{calc}
+%\tikzset{>={Stealth[scale=1,angle'=45]}}
+
+\usepackage{tikz-cd}
+\usepackage{alphalph}
+
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\SSS}{\mathbb{S}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\pr}{\operatorname{Pr}}
+\newcommand{\jnf}{\operatorname{JNF}}
+\newcommand{\sni}{\operatorname{SNI}}
+\newcommand{\ctob}{{\mathcal{B}\leftarrow\mathcal{C}}}
+\newcommand{\btoc}{{\mathcal{C}\leftarrow\mathcal{B}}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\isom}{\operatorname{isom}}
+\newcommand{\Fix}{\operatorname{Fix}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\longto}{\longrightarrow}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\PSp}{\operatorname{PSp}}
+\newcommand{\Sp}{\operatorname{Sp}}
+\newcommand{\PSU}{\operatorname{PSU}}
+\newcommand{\SU}{\operatorname{SU}}
+\newcommand{\U}{\operatorname{U}}
+\newcommand{\SO}{\operatorname{SO}}
+\newcommand{\so}{\Rightarrow}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\Stab}{\operatorname{Stab}}
+\newcommand{\Span}{\operatorname{Span}}
+\newcommand{\proj}{\operatorname{proj}}
+\newcommand{\actson}{\rcirclearrowright}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\O}{\operatorname{O}}
+\newcommand{\oh}{\mathcal{O}}
+\newcommand{\one}{\mathds{1}}
+\newcommand{\gen}{\Span}
+\newcommand{\R}{\RR}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\cc}{\mathbf{c}}
+\newcommand{\arccot}{\operatorname{arccot}}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{wop}{Well-Ordering Property}
+\newtheorem*{pmi}{Principle of Mathematical Induction}
+\newtheorem*{ftar}{Fundamental Theorem of Arithmetic}
+\newtheorem*{ftal}{Fundamental Theorem of Algebra}
+\theoremstyle{definition}
+\newtheorem{exm}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{exe}[thm]{Exercise}
+\newtheorem{ques}[thm]{Question}
+\newtheorem*{sol}{Exercise}
+
+
+\newcommand{\mnote}[1]{%
+  \marginnote{\small #1}
+}
+
+\newcommand{\ses}[7]{%
+\begin{tikzpicture}[scale=1] %\scriptsize
+  \matrix(m)[matrix of math nodes,
+             row sep=2.6em,
+             column sep=2em,
+             text height=1.5ex,
+             text depth=0.25ex,
+             ampersand replacement=\&]
+             {{#1}\&{#2}\&{#4}\&{#6}\&{#7}\\};
+  \path[->,font=\scriptsize,>=angle 90]
+  (m-1-1) edge (m-1-2)
+  (m-1-2) edge node[auto] {$#3$} (m-1-3)
+  (m-1-3) edge node[auto] {$#5$} (m-1-4)
+  (m-1-4) edge (m-1-5);
+\end{tikzpicture}
+}
+
+\newcommand{\mapdef}[5]{%
+\begin{tikzpicture}[scale=1]
+  \matrix(m)[matrix of math nodes,
+             row sep=0.1em,
+             column sep=2em,
+             text height=1.5ex,
+             text depth=0.25ex,
+             ampersand replacement=\&]
+             {{#1}\&{#2}\&{#3}\\{}\&{#4}\&{#5}\\};
+  \path[->,>=angle 90] (m-1-2) edge (m-1-3);
+  \path[|->,>=angle 90] (m-2-2) edge (m-2-3);
+\end{tikzpicture}
+}
+
+\newcommand{\col}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+
+\tikzset{
+  mirror scope/.is family,
+  mirror scope/angle/.store in=\mirrorangle,
+  mirror scope/center/.store in=\mirrorcenter,
+  mirror setup/.code={\tikzset{mirror scope/.cd,#1}},
+  mirror scope/.style={mirror setup={#1},spy scope={
+      rectangle,lens={rotate=\mirrorangle,yscale=-1,rotate=-1*\mirrorangle},size=80cm}},
+}
+\newcommand\mirror[1][]{\spy[overlay,#1] on (\mirrorcenter) in node at (\mirrorcenter)}
+
+\tikzset{
+  rotate scope/.is family,
+  rotate scope/angle/.store in=\rotateangle,
+  rotate scope/center/.store in=\rotatecenter,
+  rotate setup/.code={\tikzset{rotate scope/.cd,#1}},
+  rotate scope/.style={rotate setup={#1},spy scope={
+      rectangle,lens={rotate=\rotateangle},size=80cm}},
+}
+\newcommand\rotate[1][]{\spy[overlay,#1] on (\rotatecenter) in node at (\rotatecenter)}
+
+\newcommand{\tdo}[1]{\ifdraft{\todo{#1}}{}}
+\newcommand{\ds}{\displaystyle}
+
+
+\newmuskip\pFqskip
+\pFqskip=6mu
+\mathchardef\pFcomma=\mathcode`, % keep a copy of the comma
+
+\newcommand*\pFq[5]{%
+  \begingroup
+  \begingroup\lccode`~=`,
+    \lowercase{\endgroup\def~}{\pFcomma\mkern\pFqskip}%
+  \mathcode`,=\string"8000
+  {}_{#1}F_{#2}\biggl[\genfrac..{0pt}{}{#3}{#4};#5\biggr]%
+  \endgroup
+}
+
+
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\leq}{\leqslant}

@@ -1,0 +1,98 @@
+\documentclass[12pt]{scrartcl}
+
+\input{../header}
+
+\title{Question 3 (25 marks)}
+\author{MAST90053 Experimental Mathematics}
+\date{Due 3pm AEST on Thursday 2 July 2020}
+
+\begin{document}
+\thispagestyle{scrheadings}
+
+\maketitle
+
+\textbf{Note:} This question has 3 parts and goes over 2 pages.
+Make sure you read everything carefully.
+
+  \textbf{Background:} A function $t(n,k)$ is said to be a \emph{proper hypergeometric term} if it can be written in the form
+  \begin{equation}
+    \label{eq:proper}
+    t(n,k) = P(n,k)\,\frac{\Gamma(a_1n+b_1k+c_1)\dots \Gamma(a_rn+b_rk+c_r)}{\Gamma(d_1n+e_1k+f_1)\dots \Gamma(d_sn+e_sk+f_s)}\,x^k
+  \end{equation}
+  where $P$ is a polynomial in $n$ and $k$, with $r,s\in\ZZ_{\geq 0}$, $x\in\CC$, and $a_i,b_i,d_i,e_i\in\ZZ$.
+
+  Fix a point $(n,k)$.
+  A term $t$ of the form~\eqref{eq:proper} is said to be \emph{well-defined} if none of the numbers $a_in+b_ik+c_i$ occurring in the numerator of~\eqref{eq:proper} is a negative integer.
+  If $t$ is well-defined at $(n,k)$, we declare $t(n,k)=0$ if $P(n,k)=0$ or at least one of the numbers $d_in+e_ik+f_i$ occurring in the denominator of~\eqref{eq:proper} is a negative integer.
+
+  If $t$ is a proper hypergeometric term of the form~\eqref{eq:proper}, then it satisfies a $k$-free recurrence relation (as found by Fasenmyer's algorithm) with
+  \begin{align*}
+    J &= \sum_{j=1}^r |b_j| + \sum_{j=1}^s |e_j|\\
+    I &= 1 + \deg(P) + J\,\left(-1+\sum_{j=1}^r |a_j| + \sum_{j=1}^s |d_j|\right)
+  \end{align*}
+
+  \textbf{What you are asked to do:}
+
+  \begin{enumerate}
+
+    \item Write a function
+  \begin{lstlisting}
+def term_from_data(P, alst, blst, clst, dlst, elst, flst, x, n, k):
+    """
+    Return the proper hypergeometric term defined by Equation (1).
+
+    You may assume that the data is valid (P is a polynomial, the three
+    lists alst, blst, clst of coefficients have the same length r, the three
+    lists dlst, elst, flst of coefficients have the same length s, etc.)
+
+    EXAMPLE:
+
+    sage: n, k = var("n, k")
+    sage: P = n^2 + k
+    sage: alst = [1]; blst = [0]; clst = [1]
+    sage: dlst = [0, 1]; elst = [1, -1]; flst = [1, 1]
+    sage: t = term_from_data(P, alst, blst, clst, dlst, elst, flst, 2, n, k)
+    sage: t.simplify_full().factor()
+    (n^2 + k)*2^k*factorial(n)/(k*factorial(k - 1)*factorial(-k + n))
+    """
+  \end{lstlisting}
+  that takes the proper hypergeometric data appearing on the right hand side of~\eqref{eq:proper} and returns the function $t$ of $n$ and $k$ defined by~\eqref{eq:proper}.
+
+
+\item Write a function
+  \begin{lstlisting}
+def fasenmyer(tdata, n, k):
+    """
+    Return the recurrence relation for the summation of the proper
+    hypergeometric term t defined by tdata, using Celine Fasenmyer's algorithm.
+
+    The input is of the form
+
+    tdata = (P, alst, blst, clst, dlst, elst, flst, x)
+
+    The output is a list of coefficients a(n), a(n+1), ..., a(n+r) of a
+    recurrence relation
+
+    a(n)*t(n) + a(n+1)*t(n+1) + ... + a(n+r)*t(n+r) = 0
+
+    EXAMPLE:
+
+    sage: tdata = (SR(1), [1], [0], [1], [0, 1], [1, -1], [0, 1], 1)
+    sage: fasenmyer(tdata, n, k)
+    [2, -3*n/(n + 1), n/(n + 2)]
+    """
+  \end{lstlisting}
+  that takes the data defining a proper hypergeometric term $t$ and returns a recurrence relation (as a function of $n$) for
+  \begin{equation*}
+    s_n = \sum_{k=-\infty}^\infty t(n, k)
+  \end{equation*}
+
+
+\item Use your function from (b) to obtain a recurrence for
+  \begin{equation*}
+    s_n = \sum_{k=-\infty}^\infty k\,\binom{n}{k}
+  \end{equation*}
+  Verify that $s_n=2^{n-1}n$ satisfies the recurrence you find.
+
+  \end{enumerate}
+\end{document}
